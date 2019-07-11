@@ -4,9 +4,12 @@
     </head>
     <body> 
         <div class="container">
-            <p class="alert-success"><?= $this->session->flashdata("success") ?></p>
-            <p class="alert-danger"><?= $this->session->flashdata("danger") ?></p>
-            
+            <?php if ($this->session->flashdata("success")) { ?>
+                <p class="alert alert-success"><?= $this->session->flashdata("success") ?></p>
+            <?php } else if ($this->session->flashdata("danger")) { ?>
+
+                <p class="alert alert-danger"><?= $this->session->flashdata("danger") ?></p>
+            <?php } ?>
             <h1>Produtos</h1>
             <?php
             foreach ($produtos as $key => $value) {
@@ -22,6 +25,7 @@
             }
             if ($this->session->userdata("usuario_logado")) {
                 echo anchor("login/logout", "Logout", array("class" => "btn btn-primary"));
+                echo anchor("produtos/formulario", "Novo produto", array("class" => "btn btn-primary"));
             } else {
                 ?>
                 <h1>Login</h1>

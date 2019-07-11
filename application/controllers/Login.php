@@ -21,6 +21,7 @@ class Login extends CI_Controller {
         } else {
             $this->session->set_flashdata("danger", "Não foi possível, dados inválidos!");
         }
+        //a funcao de redirect é um helper, então deve ser ativado no helper em config/autoload
         redirect("/");
     }
 
