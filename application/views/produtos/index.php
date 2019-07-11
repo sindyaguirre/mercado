@@ -16,7 +16,9 @@
                 ?>
                 <table class="table"> 
                     <tr>
-                        <td><?= $value['nome'] ?></td>
+                        <td><?= anchor("produtos/{$value['idproduto']}", $value['nome']) ?></td>
+                        <!--aqui nos carregaremos um helper de text para limitar o texto-->
+                        <td><?= character_limiter($value['descricao'], 10) ?></td>
                         <td><?= numeroEmReais($value['preco']) ?></td>
                     </tr>    
                 </table>
